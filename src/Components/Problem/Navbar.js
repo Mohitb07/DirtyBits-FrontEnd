@@ -44,8 +44,7 @@ function Navbar() {
                     </div>
                 </div>
                 <div className = "right menu">
-                    <div className = "ui inline dropdown">
-                        <div className = "item">
+                    <div className = "ui simple dropdown">
                             <img className="ui avatar image" src={logo} alt = "logo"></img>
                             Himanshu Dhiman
                             <i className = "dropdown icon"></i>
@@ -63,7 +62,6 @@ function Navbar() {
                                     Logout
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
