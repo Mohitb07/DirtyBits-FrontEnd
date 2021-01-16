@@ -23,12 +23,12 @@ const CodeEditor = (props) => {
         valueGetter.current = _valueGetter;
     }
     const compileCode = async (data) => {
-        const response = await axios.post("http://localhost:7000/dirtybits/run/", data);
+        const response = await axios.post("http://localhost:8000/run/", data);
         const out = response.data;
-        if("error" in out){
+        if(out["error"] !== ""){
             setOutput("ERROR \n" + out["error"]);
         }else{
-            setOutput(out["OUTPUT"]);
+            setOutput(out["outputGen"]);
         }
         if(document.getElementById('custominput').checked){
             document.getElementById("inputfield").style.display = "none";
@@ -53,16 +53,23 @@ const CodeEditor = (props) => {
         
         if(input !== "Enter Input"){
             const data = {
+                "userId": 2,
+                "problemId": 2,
                 "code" : valueGetter.current(),
-                "lang" : "C++",
-                "inp" : input
+                "language" : "CP",
+                "inputGiven" : input,
+                "status": "R"
             }
             compileCode(data);
 
         }else{
             const data = {
+                "userId": 2,
+                "problemId": 2,
                 "code" : valueGetter.current(),
-                "lang" : "C++",
+                "language" : "CP",
+                "inputGiven" : "",
+                "status": "R"
             }
             compileCode(data);
         }
@@ -101,7 +108,7 @@ const CodeEditor = (props) => {
             value = "Enter Code Here"
             loading = {<Loader/ >}
             height = "calc(100vh - 300px)"
-            width = "100vw"
+            
             theme = {theme} 
             language = {language}
             editorDidMount={handleEditorDidMount}
@@ -109,7 +116,7 @@ const CodeEditor = (props) => {
             <div className = "ui segment">
                 <div className = "ui grid">
                     <div className = "eight wide column">
-                        <div class="ui checkbox">
+                        <div className ="ui checkbox">
                             <input type = "checkbox" onClick = {inputProvided} id = 'custominput'></input>
                             <label>Custom Input </label>
                         </div>

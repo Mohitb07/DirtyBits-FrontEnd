@@ -1,0 +1,27 @@
+.problemTitle {
+    align-content: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.problemStatement{
+    align-items: center;
+    justify-content: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.TestCaseHeading{
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+#testCases{
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 100%;
+}
+
