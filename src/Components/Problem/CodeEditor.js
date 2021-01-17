@@ -14,7 +14,7 @@ const CodeEditor = (props) => {
     const valueGetter = useRef();
 
     const [theme, setTheme] = useState("dark");
-    const [language, setLanguage] = useState("cpp");
+    const [language, setLanguage] = useState("python");
     const [input, setInput] = useState("Enter Input");
     const [output, setOutput] = useState("Output will be Displayed Here");
 
@@ -23,7 +23,7 @@ const CodeEditor = (props) => {
         valueGetter.current = _valueGetter;
     }
     const compileCode = async (data) => {
-        const response = await axios.post("http://localhost:8000/run/", data);
+        const response = await axios.post("https://schdserver.herokuapp.com/run/", data);
         const out = response.data;
         if(out["error"] !== ""){
             setOutput("ERROR \n" + out["error"]);
@@ -56,7 +56,7 @@ const CodeEditor = (props) => {
                 "userId": 2,
                 "problemId": 2,
                 "code" : valueGetter.current(),
-                "language" : "CP",
+                "language" : "P3",
                 "inputGiven" : input,
                 "status": "R"
             }
@@ -67,7 +67,7 @@ const CodeEditor = (props) => {
                 "userId": 2,
                 "problemId": 2,
                 "code" : valueGetter.current(),
-                "language" : "CP",
+                "language" : "P3",
                 "inputGiven" : "",
                 "status": "R"
             }
