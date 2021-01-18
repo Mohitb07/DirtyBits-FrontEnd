@@ -10,6 +10,8 @@ import './EditorStyle.css';
 
 const CodeEditor = (props) => {
 
+    var mapping = {"python" : "P3", "cpp" : "CP"};
+
     const [isEditorReady, setIsEditorReady] = useState(false);
     const valueGetter = useRef();
 
@@ -23,6 +25,7 @@ const CodeEditor = (props) => {
         valueGetter.current = _valueGetter;
     }
     const compileCode = async (data) => {
+        // console.log(data);
         const response = await axios.post("https://schdserver.herokuapp.com/run/", data);
         const out = response.data;
         if(out["error"] !== ""){
@@ -56,7 +59,7 @@ const CodeEditor = (props) => {
                 "userId": 2,
                 "problemId": 2,
                 "code" : valueGetter.current(),
-                "language" : "P3",
+                "language" : mapping[language],
                 "inputGiven" : input,
                 "status": "R"
             }
@@ -67,7 +70,7 @@ const CodeEditor = (props) => {
                 "userId": 2,
                 "problemId": 2,
                 "code" : valueGetter.current(),
-                "language" : "P3",
+                "language" : mapping[language],
                 "inputGiven" : "",
                 "status": "R"
             }
@@ -108,7 +111,6 @@ const CodeEditor = (props) => {
             value = "Enter Code Here"
             loading = {<Loader/ >}
             height = "calc(100vh - 300px)"
-            
             theme = {theme} 
             language = {language}
             editorDidMount={handleEditorDidMount}
