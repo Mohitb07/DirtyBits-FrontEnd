@@ -8,15 +8,18 @@ import OutputField from './OutputField';
 import axios from 'axios';
 import './EditorStyle.css';
 
+let info = require('./data.json');
+
 const CodeEditor = (props) => {
 
     var mapping = {"python" : "P3", "cpp" : "CP"};
+    var score;
 
     const [isEditorReady, setIsEditorReady] = useState(false);
     const valueGetter = useRef();
 
     const [theme, setTheme] = useState("dark");
-    const [language, setLanguage] = useState("python");
+    const [language, setLanguage] = useState("cpp");
     const [input, setInput] = useState("Enter Input");
     const [output, setOutput] = useState("Output will be Displayed Here");
 
@@ -25,13 +28,19 @@ const CodeEditor = (props) => {
         valueGetter.current = _valueGetter;
     }
     const compileCode = async (data) => {
-        // console.log(data);
+        console.log(data);
         const response = await axios.post("https://schdserver.herokuapp.com/run/", data);
         const out = response.data;
+        score = out['testCasesPassed'];
+        if(!document.getElementById('custominput').checked){
+            document.getElementById("result").innerHTML = "Test Cases Passed : " + score;
+        }
         if(out["error"] !== ""){
             setOutput("ERROR \n" + out["error"]);
         }else{
-            setOutput(out["outputGen"]);
+            if(out["outputGen"] !== ''){
+                setOutput(out["outputGen"]);
+            }
         }
         if(document.getElementById('custominput').checked){
             document.getElementById("inputfield").style.display = "none";
@@ -43,10 +52,10 @@ const CodeEditor = (props) => {
         }else{
             document.getElementById("inputoutputfield").style.display = 'none';
             document.getElementById("inputfield").style.display = "none";
-            var x = document.getElementById("outputfield");
-            x.style.display = "block";
-            x.focus();
-            x.scrollIntoView();
+            // var x = document.getElementById("outputfield");
+            // x.style.display = "block";
+            // x.focus();
+            // x.scrollIntoView();
         }
         setIsEditorReady(true);
 
@@ -57,22 +66,24 @@ const CodeEditor = (props) => {
         if(input !== "Enter Input"){
             const data = {
                 "userId": 2,
-                "problemId": 2,
+                "problemId": info.id,
                 "code" : valueGetter.current(),
                 "language" : mapping[language],
                 "inputGiven" : input,
-                "status": "R"
+                "status": "R",
+                "testCasesPassed" : 0
             }
             compileCode(data);
 
         }else{
             const data = {
                 "userId": 2,
-                "problemId": 2,
+                "problemId": info.id,
                 "code" : valueGetter.current(),
                 "language" : mapping[language],
                 "inputGiven" : "",
-                "status": "R"
+                "status": "R",
+                "testCasesPassed" : 0
             }
             compileCode(data);
         }
@@ -116,6 +127,7 @@ const CodeEditor = (props) => {
             editorDidMount={handleEditorDidMount}
             />
             <div className = "ui segment">
+                <h3 id = "result"></h3>
                 <div className = "ui grid">
                     <div className = "eight wide column">
                         <div className ="ui checkbox">

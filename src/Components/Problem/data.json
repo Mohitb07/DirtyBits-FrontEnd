@@ -1,16 +1,16 @@
 {
     "id" : 1,
-    "title" : "Killjee and cities",
+    "title" : "Digit Problem",
     "category" : "Easy",
     "Attempts" : "100",
-    "Accuracy" : "20%",
+    "Accuracy" : "80%",
     "Tags" : [
-        "Data Structures", "Disjoint Sets", "Graphs"
+        "Data Structures", "Implementation", "Arrays"
     ] ,
-    "Statement" : "Killjee lives in Codaland. Codaland has n cities and m bidirectional roads connecting these cities, but not all cities are connected. Now the President of Codaland has passed an order to build q new roads one by one connecting two different cities. Killjee wonders how many new roads are needed to connect all the cities of Codaland after construction of each road as per President's plan.",
+    "Statement" : "Given two integers X and K, find the largest number that can be formed by changing digits at atmost K places in the number X.",
     "test Cases" : 1,
-    "input1" : " 5\n 0\n 2\n 3\n 2\n 2 1\n 2 1\n 4 3\n",
-    "output1" : " 3 3 2",
+    "input1" : "4483\t2",
+    "output1" : "9983",
     "Time Limit" : 1,
     "Memory Limit" : "2MB"
 }
