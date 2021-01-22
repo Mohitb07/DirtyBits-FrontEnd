@@ -1,9 +1,9 @@
-.item{
-    cursor: pointer;
+.item {
+  cursor: pointer;
 }
-button{
-    border: transparent;
-    cursor: pointer;
-    background-color: white;
-    outline: none;
+button {
+  border: transparent;
+  cursor: pointer;
+  background-color: white;
+  outline: none;
 }
