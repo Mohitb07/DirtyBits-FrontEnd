@@ -8,8 +8,6 @@ import OutputField from "./OutputField";
 import axios from "axios";
 import "./EditorStyle.css";
 
-let info = require("./data.json");
-
 const CodeEditor = (props) => {
   var mapping = { python: "P3", cpp: "CP" };
   var score;
@@ -26,12 +24,13 @@ const CodeEditor = (props) => {
     setIsEditorReady(true);
     valueGetter.current = _valueGetter;
   };
+
+  const endpoint = "https://schdserver.herokuapp.com/run/";
+  // const endpoint = "http://127.0.0.1:8000/run/";
+
   const compileCode = async (data) => {
     console.log(data);
-    const response = await axios.post(
-      "https://schdserver.herokuapp.com/run/",
-      data
-    );
+    const response = await axios.post(endpoint, data);
     const out = response.data;
     score = out["testCasesPassed"];
     if (!document.getElementById("custominput").checked) {
@@ -55,6 +54,12 @@ const CodeEditor = (props) => {
     } else {
       document.getElementById("inputoutputfield").style.display = "none";
       document.getElementById("inputfield").style.display = "none";
+      if (out["error"] !== "") {
+        var x = document.getElementById("outputfield");
+        x.style.display = "block";
+        x.focus();
+        x.scrollIntoView();
+      }
     }
     setIsEditorReady(true);
   };
@@ -64,18 +69,19 @@ const CodeEditor = (props) => {
     if (input !== "Enter Input") {
       const data = {
         userId: 2,
-        problemId: info.id,
+        problemId: props.id,
         code: valueGetter.current(),
         language: mapping[language],
         inputGiven: input,
         status: "R",
         testCasesPassed: 0,
       };
+      console.log(data);
       compileCode(data);
     } else {
       const data = {
         userId: 2,
-        problemId: info.id,
+        problemId: props.id,
         code: valueGetter.current(),
         language: mapping[language],
         inputGiven: "",

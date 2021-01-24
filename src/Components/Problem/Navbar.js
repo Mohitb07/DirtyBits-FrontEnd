@@ -12,8 +12,8 @@ function Navbar() {
   };
 
   return (
-    <div>
-      <div className="ui secondary pointing menu">
+    <div style={{ overflow: "hidden" }}>
+      <div className="ui secondary pointing menu" id="navbar">
         <div className="left menu">
           <div className="item">
             <img src={logo} alt="logo"></img>
@@ -44,7 +44,7 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div className="item right menu">
+        <div className="item right menu" style={{ paddingRight: "10px" }}>
           <div className="ui simple dropdown">
             <img className="ui avatar image" src={logo} alt="logo"></img>
             Himanshu Dhiman

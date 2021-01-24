@@ -3,7 +3,7 @@ import React from "react";
 import ProblemArea from "./ProblemArea";
 import Navbar from "./Navbar";
 
-function Menu() {
+function Menu(props) {
   return (
     <div>
       <Navbar />
@@ -12,14 +12,31 @@ function Menu() {
           className="ui two column very relaxed grid"
           style={{ paddingTop: "20px" }}
         >
-          <div className="column">
+          <div
+            className="column"
+            style={{
+              overflow: "hidden",
+              flexFlow: "wrap",
+              paddingRight: "0px",
+              justifyContent: "space-around",
+            }}
+          >
             <div className="ui container">
-              <ProblemArea />
+              <ProblemArea id = {props.id}/>
             </div>
           </div>
-          <div className="column">
+          <div
+            className="column"
+            style={{
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              paddingRight: "0px",
+              flexFlow: "wrap",
+              justifyContent: "space-around",
+            }}
+          >
             <div className="ui container">
-              <CodeEditor />
+              <CodeEditor id = {props.id}/>
             </div>
           </div>
         </div>

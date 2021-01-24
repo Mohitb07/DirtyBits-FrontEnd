@@ -9,18 +9,34 @@
 .problemStatement {
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
   padding-left: 2%;
   padding-right: 2%;
 }
 
 .TestCaseHeading {
-  justify-content: center;
-  align-content: center;
-  text-align: center;
+  display: flexbox;
+  padding: 3%;
 }
 
 #testCases {
   margin-left: 2%;
   margin-right: 2%;
-  width: 100%;
+  width: 60%;
+  padding-bottom: 3%;
+}
+
+.memorylimit {
+  padding-left: 2%;
+}
+
+.timelimit {
+  padding-left: 2%;
+}
+
+#frmFile {
+  height: 50px;
+  width: 100px;
+  border: none;
+  overflow: scroll;
 }
