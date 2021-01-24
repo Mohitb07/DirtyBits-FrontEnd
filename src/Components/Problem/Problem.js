@@ -2,12 +2,11 @@ import React from "react";
 import Menu from "./Menu";
 
 function Problem() {
-
-  const id = 1;
+  const id = 2;
 
   return (
     <div>
-      <Menu id = {id}/>
+      <Menu id={id} />
     </div>
   );
 }

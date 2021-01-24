@@ -1,10 +1,12 @@
 import Axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import "./ProblemArea.css";
 import Iframe from "react-iframe";
 
 function ProblemArea(props) {
   const endpoint = "https://judgeserver.herokuapp.com/problem/";
+
+  const [totaltc, setTotaltc] = useState(0);
 
   const data = {
     type: "problem",
@@ -25,7 +27,7 @@ function ProblemArea(props) {
     const renderinp = inps.map((item, index) => {
       return (
         <>
-          <pre>#TestCase {index}</pre>
+          <pre>#TestCase {index + 1}</pre>
           <Iframe id="frmFile" src={item}></Iframe>
         </>
       );
@@ -48,15 +50,13 @@ function ProblemArea(props) {
     const renderout = ops.map((item, index) => {
       return (
         <>
-          <pre>#TestCase {index}</pre>
+          <pre>#TestCase {index + 1}</pre>
           <Iframe id="frmFile" src={item}></Iframe>
         </>
       );
     });
     return renderout;
   };
-
-  var sampleTestCases;
 
   const getData = async (data) => {
     const response = await Axios.post(endpoint + "get/", data);
@@ -67,12 +67,17 @@ function ProblemArea(props) {
       "Time Limit : " + out["timeLimit"];
     document.querySelector(".memorylimit").innerHTML =
       "Memory Limit : " + out["memoryLimit"];
-
-    sampleTestCases = out["sampleTc"];
-    console.log(sampleTestCases);
+    console.log(out);
+    setTotaltc(out["sampleTc"]);
   };
 
   getData(data);
+
+  const getTc = async (data) => {
+    const response = await Axios.post(endpoint + "get/", data);
+    const out = response.data;
+    console.log(out);
+  };
 
   return (
     <div>
@@ -85,11 +90,11 @@ function ProblemArea(props) {
         <div className="ui two column very relaxed grid">
           <div className="column" id="testCasesColumn">
             <h3>Input</h3>
-            {showTCIn(2)}
+            {showTCIn(totaltc)}
           </div>
           <div className="column" id="testCasesColumn">
             <h3>Output</h3>
-            <pre>{showTCOt(2)}</pre>
+            <pre>{showTCOt(totaltc)}</pre>
           </div>
         </div>
         <div className="ui vertical divider"></div>
