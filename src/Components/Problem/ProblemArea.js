@@ -4,7 +4,9 @@ import "./ProblemArea.css";
 import Iframe from "react-iframe";
 
 function ProblemArea(props) {
-  const endpoint = "https://judgeserver.herokuapp.com/problem/";
+  // const endpoint = "https://judgeserver.herokuapp.com/problem/";
+  const endpoint = "http://54.198.168.63/";
+  // const endpoint = "http://127.0.0.1:8000/";
 
   const [totaltc, setTotaltc] = useState(0);
 
@@ -59,7 +61,7 @@ function ProblemArea(props) {
   };
 
   const getData = async (data) => {
-    const response = await Axios.post(endpoint + "get/", data);
+    const response = await Axios.post(endpoint + "getData/", data);
     const out = response.data;
     document.querySelector(".problemTitle").innerHTML = out["title"];
     document.querySelector(".problemStatement").innerHTML = out["description"];
@@ -67,7 +69,7 @@ function ProblemArea(props) {
       "Time Limit : " + out["timeLimit"];
     document.querySelector(".memorylimit").innerHTML =
       "Memory Limit : " + out["memoryLimit"];
-    console.log(out);
+    // console.log(out);
     setTotaltc(out["sampleTc"]);
   };
 
@@ -76,7 +78,7 @@ function ProblemArea(props) {
   const getTc = async (data) => {
     const response = await Axios.post(endpoint + "get/", data);
     const out = response.data;
-    console.log(out);
+    // console.log(out);
   };
 
   return (

@@ -3,10 +3,11 @@ import Menu from "./Menu";
 
 function Problem() {
   const id = 2;
+  const uid = 1;
 
   return (
     <div>
-      <Menu id={id} />
+      <Menu id={id} uid={uid} />
     </div>
   );
 }

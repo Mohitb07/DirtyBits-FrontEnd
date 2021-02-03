@@ -11,6 +11,7 @@ import "./EditorStyle.css";
 const CodeEditor = (props) => {
   var mapping = { python: "P3", cpp: "CP" };
   var score;
+  var user_id = props.uid;
 
   const [isEditorReady, setIsEditorReady] = useState(false);
   const valueGetter = useRef();
@@ -25,13 +26,11 @@ const CodeEditor = (props) => {
     valueGetter.current = _valueGetter;
   };
 
-  const endpoint = "https://schdserver.herokuapp.com/run/";
-  // const endpoint = "http://127.0.0.1:8000/run/";
+  // const endpoint = "https://schdserver.herokuapp.com/run/";
+  const endpoint = "http://54.198.168.63/run/" + user_id.toString() + "/";
+  // const endpoint = "http://127.0.0.1:8000/run/" + user_id.toString() + "/";
 
-  const compileCode = async (data) => {
-    console.log(data);
-    const response = await axios.post(endpoint, data);
-    const out = response.data;
+  const displayOut = async (out) => {
     score = out["testCasesPassed"];
     if (!document.getElementById("custominput").checked) {
       document.getElementById("result").innerHTML =
@@ -55,7 +54,7 @@ const CodeEditor = (props) => {
       document.getElementById("inputoutputfield").style.display = "none";
       document.getElementById("inputfield").style.display = "none";
       if (out["error"] !== "") {
-        var x = document.getElementById("outputfield");
+        x = document.getElementById("outputfield");
         x.style.display = "block";
         x.focus();
         x.scrollIntoView();
@@ -63,12 +62,36 @@ const CodeEditor = (props) => {
     }
     setIsEditorReady(true);
   };
+
+  const connect = async (data) => {
+    var socket = new WebSocket(
+      "ws://54.198.168.63:8001/ws/runcode/" + user_id.toString() + "/"
+    );
+    socket.onopen = function (e) {
+      console.log("opened");
+    };
+    const response = await axios.post(endpoint, data);
+    socket.onmessage = async function (e) {
+      var data = JSON.parse(e.data);
+      if (data["text"] !== "passed" && data["text"] !== "failed") {
+        var metadata = JSON.parse(data["text"])[0];
+        displayOut(metadata.fields);
+      } else {
+        console.log(data["text"]);
+      }
+    };
+    return response;
+  };
+
+  const compileCode = async (data) => {
+    await connect(data);
+  };
   const runCode = () => {
     setIsEditorReady(false);
 
     if (input !== "Enter Input") {
       const data = {
-        userId: 2,
+        userId: user_id,
         problemId: props.id,
         code: valueGetter.current(),
         language: mapping[language],
@@ -80,7 +103,7 @@ const CodeEditor = (props) => {
       compileCode(data);
     } else {
       const data = {
-        userId: 2,
+        userId: user_id,
         problemId: props.id,
         code: valueGetter.current(),
         language: mapping[language],

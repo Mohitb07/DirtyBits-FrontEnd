@@ -22,7 +22,7 @@ function Menu(props) {
             }}
           >
             <div className="ui container">
-              <ProblemArea id = {props.id}/>
+              <ProblemArea id={props.id} />
             </div>
           </div>
           <div
@@ -36,7 +36,7 @@ function Menu(props) {
             }}
           >
             <div className="ui container">
-              <CodeEditor id = {props.id}/>
+              <CodeEditor id={props.id} uid={props.uid} />
             </div>
           </div>
         </div>
