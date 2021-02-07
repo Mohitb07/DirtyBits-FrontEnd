@@ -26,15 +26,15 @@ const CodeEditor = (props) => {
     valueGetter.current = _valueGetter;
   };
 
-  // const endpoint = "https://schdserver.herokuapp.com/run/";
   const endpoint = "http://54.198.168.63/run/" + user_id.toString() + "/";
-  // const endpoint = "http://127.0.0.1:8000/run/" + user_id.toString() + "/";
 
   const displayOut = async (out) => {
     score = out["testCasesPassed"];
     if (!document.getElementById("custominput").checked) {
       document.getElementById("result").innerHTML =
         "Test Cases Passed : " + score;
+    } else {
+      document.getElementById("result").innerHTML = "";
     }
     if (out["error"] !== "") {
       setOutput("ERROR \n" + out["error"]);
