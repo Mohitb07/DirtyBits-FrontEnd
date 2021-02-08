@@ -67,7 +67,6 @@ function ProblemArea(props) {
       "Time Limit : " + out["timeLimit"];
     document.querySelector(".memorylimit").innerHTML =
       "Memory Limit : " + out["memoryLimit"];
-    // console.log(out);
     setTotaltc(out["sampleTc"]);
   };
 
