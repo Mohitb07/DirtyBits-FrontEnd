@@ -111,6 +111,7 @@ const CodeEditor = (props) => {
         status: "R",
         testCasesPassed: 0,
       };
+      console.log(data);
       compileCode(data);
     }
   };
