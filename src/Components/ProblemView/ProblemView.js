@@ -8,7 +8,6 @@ function ProblemView() {
   const uid = 1;
   return (
     <div id="pageDiv">
-      <Navbar />
       <ViewArea id={id} uid={uid} />
     </div>
   );
