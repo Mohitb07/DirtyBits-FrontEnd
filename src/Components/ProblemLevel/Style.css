@@ -1,0 +1,44 @@
+body {
+    height: 100vh;
+    padding: 0;
+    background: ghostwhite;
+}
+
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    padding: 210px;
+}
+
+.hero {
+    color: black;
+    background: rgb(8, 16, 66);
+    padding: 80px;
+    color: white;
+}
+
+.hero p {
+    font-size: 20px;
+    font-weight: 200;    
+    margin-top: 13px;
+}
+
+.cont {
+    position: absolute;
+}
+
+.hero {
+    position: relative;
+    height: 50vh;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 720px;
+    height:470px;
+    background: url('./ec.svg');
+    top: 0;
+    right: 0;
+}
