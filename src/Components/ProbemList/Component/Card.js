@@ -4,7 +4,7 @@ class Card extends React.Component {
     render() {
         const {title, description,id} = this.props;
         return(
-            <div style={{width: '50%',marginLeft: '-4%',marginTop: '-5%'}}>
+            <div style={{width: '50%',marginLeft: '-4%',marginTop: '-9%'}}>
                 <div className="card">
                     <div className="card-header">
                         Question {id}

@@ -5,6 +5,7 @@ import ProblemView from "./Components/ProblemView/ProblemView";
 // import Problem from "./Components/Problem/Problem";
 import ProblemList from './Components/ProbemList/ProblemList';
 import Navbar from './Components/ProblemView/Navbar';
+import ProblemLevel from './Components/ProblemLevel/ProblemLevel';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Navbar/>
           <Route path="/" exact component={ProblemView}/>
           <Route path="/problemlist" exact component={ProblemList}/>
+          <Route path="/problemlevel" exact component={ProblemLevel}/>
         </div>
       </BrowserRouter>
     </div>

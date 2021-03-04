@@ -15,12 +15,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleSelect() {
+export default function SimpleSelect(props) {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
+  const [level, setlevel] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setlevel(event.target.value);
+    props.onChange(event.target.value);
   };
 
   return (
@@ -30,12 +31,13 @@ export default function SimpleSelect() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={level}
           onChange={handleChange}
+          // onChange={(event) => props.onChange(event.target.value)}
         >
-          <MenuItem value={10}>Easy</MenuItem>
-          <MenuItem value={20}>Medium</MenuItem>
-          <MenuItem value={30}>Hard</MenuItem>
+          <MenuItem value={'E'}>Easy</MenuItem>
+          <MenuItem value={'M'}>Medium</MenuItem>
+          <MenuItem value={'H'}>Hard</MenuItem>
         </Select>
       </FormControl>
     </div>
