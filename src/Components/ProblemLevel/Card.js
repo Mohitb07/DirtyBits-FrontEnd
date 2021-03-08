@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -18,13 +19,13 @@ export default function ImgMediaCard(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card style={{marginRight:'1.5em',width:'300px',background:'#edf7ed'}} className={classes.root}>
       <CardActionArea>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
           height="140"
-          image="https://visualstudiomagazine.com/-/media/ECG/visualstudiomagazine/Images/IntroImages2016/0816vsm_McCaffreyDataSciLab.jpg"
+          image={props.img}
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -38,10 +39,10 @@ export default function ImgMediaCard(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Solve
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+          <Link to={{
+            pathname:'/problemlist',
+            state:props.value
+          }}>Solve</Link>
         </Button>
       </CardActions>
     </Card>
