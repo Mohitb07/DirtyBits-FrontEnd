@@ -18,10 +18,11 @@ class ProblemList extends React.Component {
   componentDidMount() {
     axios.post('http://54.198.168.63/getData/',{
       "type" : "list",
-      "tags" : ["String"],
-      'level': 'E'
+      "tags" : [this.props.location.state],
+      'level': ''
     })
       .then(reponse => {
+        console.log(this.props.location.state)
         console.log(reponse.data.map(d => console.log(d)))
         this.setState(
           { questions:reponse.data }
@@ -64,11 +65,10 @@ class ProblemList extends React.Component {
         <Dropdown onChange={value => this.setState(
           { level:value }
           )}/>
-          <Checkbox/>
         {
           questions.length ? 
           questions.map(question => <div style={ { fontSize:30,marginTop:'10%',marginLeft:'10%' }} key={question.id}>
-            <Card id={question.id} title={question.level} description={question.description}/>
+            <Card id={question.id} title={question.title} description={question.description}/>
             </div>
             ):<div style={{display:'flex', justifyContent: 'center', marginTop: '5%'}}><Spinner/></div>
           }
