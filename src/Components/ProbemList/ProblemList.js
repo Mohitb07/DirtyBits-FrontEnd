@@ -4,7 +4,6 @@ import axios from 'axios';
 import Card from './Component/Card';
 import Spinner from './Component/Spinner';
 import Dropdown from './Component/Dropdown';
-import Checkbox from './Component/Checkbox';
 
 class ProblemList extends React.Component {
   constructor(props) {
@@ -16,13 +15,14 @@ class ProblemList extends React.Component {
   }
 
   componentDidMount() {
+    const tags = this.props.location.state ? this.props.location.state : 'Arrays'
     axios.post('http://54.198.168.63/getData/',{
       "type" : "list",
-      "tags" : [this.props.location.state],
+      "tags" : [tags],
       'level': ''
     })
       .then(reponse => {
-        console.log(this.props.location.state)
+        
         console.log(reponse.data.map(d => console.log(d)))
         this.setState(
           { questions:reponse.data }

@@ -14,7 +14,7 @@
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show > .nav-link {
   color: white;
-  font-weight: bold;
+  font-weight: 200px;
 }
 
 #profileDrop {
