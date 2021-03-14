@@ -1,7 +1,7 @@
 .navbarBack {
   background: #434343;
-  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #4028c8), color-stop(56%, #4028c8), to(#4028c8));
-  background: linear-gradient(90deg, #4028c8 10%, #4028c8 56%, #4028c8 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #080808), color-stop(56%, #060607), to(#111111));
+  background: linear-gradient(90deg, #080808 10%, #060607 56%, #111111 100%);
 }
 
 .textFont {
@@ -14,11 +14,12 @@
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show > .nav-link {
   color: white;
-  font-weight: 200px;
+  border-bottom: 1px solid white;
 }
 
 #profileDrop {
   color: white;
-  font-weight: bold;
+  font-weight: 400;
+  border: 0;
 }
 /*# sourceMappingURL=Navbar.css.map */

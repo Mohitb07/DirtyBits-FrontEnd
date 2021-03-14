@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "./Navbar";
 import ViewArea from "./ViewArea";
 import "./sass/ProblemView.css";
 
-function ProblemView() {
-  const id = 1;
+function ProblemView(props) {
+  const questionId = props.location.questionId ? props.location.questionId:props.history.push('/')
+  const id = questionId;
   const uid = 1;
   return (
     <div id="pageDiv">
