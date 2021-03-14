@@ -19,7 +19,7 @@ export default function ImgMediaCard(props) {
   const classes = useStyles();
 
   return (
-    <Card style={{marginRight:'1.5em',width:'300px',background:'#edf7ed'}} className={classes.root}>
+    <Card style={{marginRight:'1.5em',width:'300px',background:'#edf7ed',boxShadow: '1px 16px 60px -12px rgba(0,0,0,0.81)'}} className={classes.root}>
       <CardActionArea>
         <CardMedia
           component="img"

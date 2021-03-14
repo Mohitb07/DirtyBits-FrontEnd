@@ -38,7 +38,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item mr-4">
-              <a
+              <a style={{color:'white'}}
                 className="nav-link active"
                 href="/#"
                 id="home"
@@ -48,7 +48,7 @@ function Navbar() {
               </a>
             </li>
             <li className="nav-item mr-4">
-              <a
+              <a style={{color:'white'}}
                 className="nav-link"
                 href="/#"
                 id="compete"
@@ -58,7 +58,7 @@ function Navbar() {
               </a>
             </li>
             <li className="nav-item mr-4">
-              <a
+              <a style={{color:'white'}}
                 className="nav-link"
                 href="/#"
                 id="practice"
@@ -68,7 +68,7 @@ function Navbar() {
               </a>
             </li>
             <li className="nav-item mr-4">
-              <a
+              <a style={{color:'white'}}
                 className="nav-link"
                 href="/#"
                 id="blogs"
@@ -80,7 +80,7 @@ function Navbar() {
           </ul>
           <ul className="navbar-nav mr-3">
             <li className="nav-item dropdown" id="profileDrop">
-              <a
+              <a style={{color:'white',borderBottomStyle:'none'}}
                 className="nav-link dropdown-toggle"
                 href="/#"
                 id="navbarDropdown"
@@ -89,7 +89,7 @@ function Navbar() {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Himanshu Dhiman
+                Mohit Bisht
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a className="dropdown-item" href="/#">

@@ -15,10 +15,12 @@
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show > .nav-link {
   color: $text-color;
-  font-weight: 200px;
+  border-bottom: 1px solid white;
 }
+
 
 #profileDrop {
   color: $text-color;
-  font-weight: bold;
+  font-weight: 400;
+  border: 0;
 }

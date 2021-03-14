@@ -13,9 +13,9 @@ function App() {
       <BrowserRouter>
         <div>
           <Navbar/>
-          <Route path="/" exact component={ProblemView}/>
+          <Route path="/" exact component={ProblemLevel}/>
+          <Route path="/problem" exact component={ProblemView}/>
           <Route path="/problemlist" exact component={ProblemList}/>
-          <Route path="/problemlevel" exact component={ProblemLevel}/>
         </div>
       </BrowserRouter>
     </div>
