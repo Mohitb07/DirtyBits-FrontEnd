@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import logo from "../static/logo.svg";
 import "./sass/Navbar.css";
 
-function Navbar() {
+import history from '../../history';
+
+function Navbar(props) {
   const [currentPage, setCurrentPage] = useState("home");
 
   const setPage = (e) => {
@@ -99,10 +101,10 @@ function Navbar() {
                   Bookmarks
                 </a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/#">
+                <a className="dropdown-item" href="/settings">
                   Settings
                 </a>
-                <a className="dropdown-item" href="/#">
+                <a className="dropdown-item" href="/#" data-toggle="modal" data-target="#logoutModal">
                   Logout
                 </a>
               </div>
@@ -110,6 +112,27 @@ function Navbar() {
           </ul>
         </div>
       </nav>
+
+    <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Log Out <i class="fa fa-lock"></i></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <p><i class="fa fa-question-circle"></i> Are you sure you want to log-off? <br /></p>
+            <div class="actionsBtns">
+                <form action="/logout" method="post">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <input onClick={()=>history.push('/logout')} type="submit" class="btn btn-default btn-danger" data-dismiss="modal" value="Logout" />
+                      <button class="btn btn-default ml-3" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </>
   );
 }

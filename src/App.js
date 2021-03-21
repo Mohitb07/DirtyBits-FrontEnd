@@ -1,23 +1,28 @@
 import React from "react";
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
+import {Router} from 'react-router';
 
 import ProblemView from "./Components/ProblemView/ProblemView";
-// import Problem from "./Components/Problem/Problem";
 import ProblemList from './Components/ProbemList/ProblemList';
 import Navbar from './Components/ProblemView/Navbar';
 import ProblemLevel from './Components/ProblemLevel/ProblemLevel';
+import settings from './settings';
+import logout from './logout';
+import history from './history';
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <Router history={history} >
         <div>
           <Navbar/>
+          <Route path="/logout" component={logout}/>
           <Route path="/" exact component={ProblemLevel}/>
           <Route path="/problem" exact component={ProblemView}/>
           <Route path="/problemlist" exact component={ProblemList}/>
+          <Route path="/settings" exact component={settings}/>
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }

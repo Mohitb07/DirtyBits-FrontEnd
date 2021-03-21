@@ -11,6 +11,7 @@ function ThemeDrop(props) {
   const ThemeHelper = (e) => {
     const newId = ThemeMapping[e.target.text];
     currId = props.props;
+    console.log(props.props)
     props.dispatch(newId);
 
     document.getElementById(newId).className = "dropdown-item active";
