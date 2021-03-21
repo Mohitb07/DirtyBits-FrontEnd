@@ -11,6 +11,7 @@ function ThemeDrop(props) {
   const ThemeHelper = (e) => {
     const newId = ThemeMapping[e.target.text];
     currId = props.props;
+    console.log(props.props)
     props.dispatch(newId);
 
     document.getElementById(newId).className = "dropdown-item active";
@@ -41,10 +42,10 @@ function ThemeDrop(props) {
           aria-labelledby="dropdownMenuButton"
           onClick={(e) => ThemeHelper(e)}
         >
-          <a id="dark" className="dropdown-item active" href="/#">
+          <a id="dark" className="dropdown-item active" href="#">
             Dark
           </a>
-          <a id="light" className="dropdown-item" href="/#">
+          <a id="light" className="dropdown-item" href="#">
             Light
           </a>
         </div>
