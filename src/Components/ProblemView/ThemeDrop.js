@@ -42,10 +42,14 @@ function ThemeDrop(props) {
           aria-labelledby="dropdownMenuButton"
           onClick={(e) => ThemeHelper(e)}
         >
-          <a id="dark" className="dropdown-item active" href="#">
+          <a
+            id="dark"
+            className="dropdown-item active"
+            href="javascript:void(0)"
+          >
             Dark
           </a>
-          <a id="light" className="dropdown-item" href="#">
+          <a id="light" className="dropdown-item" href="javascript:void(0)">
             Light
           </a>
         </div>
