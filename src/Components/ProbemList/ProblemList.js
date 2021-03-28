@@ -70,7 +70,7 @@ class ProblemList extends React.Component {
           questions.map(question => <div style={ { fontSize:30,marginTop:'10%',marginLeft:'10%' }} key={question.id}>
             <Card id={question.id} title={question.title} description={question.description}/>
             </div>
-            ):<div style={{display:'flex', justifyContent: 'center', marginTop: '5%'}}><Spinner/></div>
+            ):<div style={{display:'flex', justifyContent: 'center', marginTop: '5%',height: '50vh'}}><Spinner/></div>
           }
 
 

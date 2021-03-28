@@ -3,6 +3,8 @@ import logo from "../static/logo.svg";
 import "./sass/Navbar.css";
 
 import history from '../../history';
+import {Link} from 'react-router-dom';
+import Avatar from './Avatar';
 
 function Navbar(props) {
   const [currentPage, setCurrentPage] = useState("home");
@@ -16,7 +18,7 @@ function Navbar(props) {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light navbarBack ">
-        <a className="navbar-brand textFont pr-4" href="/#">
+        <Link className="navbar-brand textFont pr-4" to="/">
           <img
             src={logo}
             alt="logo"
@@ -25,7 +27,7 @@ function Navbar(props) {
             className="d-inline-block align-top"
           />{" "}
           <strong style={{ color: "white" }}>DirtyBits</strong>
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -40,24 +42,24 @@ function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item mr-4">
-              <a style={{color:'white'}}
+              <Link style={{color:'white'}}
                 className="nav-link active"
-                href="/#"
+                to="/"
                 id="home"
                 onClick={() => setPage("home")}
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item mr-4">
-              <a style={{color:'white'}}
+              <Link style={{color:'white'}}
                 className="nav-link"
                 href="/#"
                 id="compete"
                 onClick={() => setPage("compete")}
               >
                 Compete
-              </a>
+              </Link>
             </li>
             <li className="nav-item mr-4">
               <a style={{color:'white'}}
@@ -81,8 +83,9 @@ function Navbar(props) {
             </li>
           </ul>
           <ul className="navbar-nav mr-3">
+              <li><Avatar/></li>
             <li className="nav-item dropdown" id="profileDrop">
-              <a style={{color:'white',borderBottomStyle:'none'}}
+              <a style={{color:'white',borderBottomStyle:'none',marginTop:'7px'}}
                 className="nav-link dropdown-toggle"
                 href="/#"
                 id="navbarDropdown"
@@ -94,19 +97,19 @@ function Navbar(props) {
                 Mohit Bisht
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="/#">
+                <Link className="dropdown-item" href="/#">
                   Profile
-                </a>
-                <a className="dropdown-item" href="/#">
+                </Link>
+                <Link className="dropdown-item" href="/#">
                   Bookmarks
-                </a>
+                </Link>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/settings">
+                <Link className="dropdown-item" to="/settings">
                   Settings
-                </a>
-                <a className="dropdown-item" href="/#" data-toggle="modal" data-target="#logoutModal">
+                </Link>
+                <Link className="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                   Logout
-                </a>
+                </Link>
               </div>
             </li>
           </ul>
