@@ -5,6 +5,9 @@ import "./sass/Navbar.css";
 import history from '../../history';
 import {Link} from 'react-router-dom';
 import Avatar from './Avatar';
+import LogoutButton from '../Buttons/Logout'
+import { useAuth0 } from '@auth0/auth0-react';
+import LoginButton from '../Buttons/Login';
 
 function Navbar(props) {
   const [currentPage, setCurrentPage] = useState("home");
@@ -14,6 +17,9 @@ function Navbar(props) {
     document.getElementById(e).className = "nav-link active";
     setCurrentPage(e);
   };
+
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
 
   return (
     <>
@@ -82,8 +88,10 @@ function Navbar(props) {
               </a>
             </li>
           </ul>
-          <ul className="navbar-nav mr-3">
-              <li><Avatar/></li>
+          { isAuthenticated ?
+
+              <ul className="navbar-nav mr-3">
+              <li><Avatar img={user.picture}/></li>
             <li className="nav-item dropdown" id="profileDrop">
               <a style={{color:'white',borderBottomStyle:'none',marginTop:'7px'}}
                 className="nav-link dropdown-toggle"
@@ -94,7 +102,7 @@ function Navbar(props) {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Mohit Bisht
+                {user.name}
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" href="/#">
@@ -113,6 +121,11 @@ function Navbar(props) {
               </div>
             </li>
           </ul>
+            :
+            ''
+          }
+
+
         </div>
       </nav>
 
@@ -128,7 +141,7 @@ function Navbar(props) {
             <div class="actionsBtns">
                 <form action="/logout" method="post">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                    <input onClick={()=>history.push('/logout')} type="submit" class="btn btn-default btn-danger" data-dismiss="modal" value="Logout" />
+                    <LogoutButton onClick={()=>history.push('/logout')} data-dismiss="modal"/>
                       <button class="btn btn-default ml-3" data-dismiss="modal">Cancel</button>
                 </form>
             </div>
