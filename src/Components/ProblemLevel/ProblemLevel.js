@@ -17,11 +17,10 @@ class ProblemLevel extends React.Component {
                     wrapper="h6"
                     >
                 </Typical>
-                </h1>
+                </h1>                  
                     
-                    
-                    <p>Learn Data Structures and Algorithms from basic to advanced level
-
+                    <p>
+                        Learn Data Structures and Algorithms from basic to advance level
                     </p>
 
                 </div>

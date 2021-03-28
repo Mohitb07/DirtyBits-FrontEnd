@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <Router history={history} >
-        <div>
+        <div style={{overflowX:'hidden'}}>
           <Navbar/>
           <Route path="/logout" component={logout}/>
           <Route path="/" exact component={ProblemLevel}/>
