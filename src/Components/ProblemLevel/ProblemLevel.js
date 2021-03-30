@@ -4,6 +4,8 @@ import style from './Style.css';
 import Card from './Card';
 import Typical from 'react-typical'
 
+import Loginbutton from '../Buttons/Login';
+
 class ProblemLevel extends React.Component {
     render(){
         return(
@@ -17,13 +19,12 @@ class ProblemLevel extends React.Component {
                     wrapper="h6"
                     >
                 </Typical>
-                </h1>
+                </h1>                  
                     
-                    
-                    <p>Learn Data Structures and Algorithms from basic to advanced level
-
+                    <p>
+                        Learn Data Structures and Algorithms from basic to advance level
                     </p>
-
+                    <Loginbutton/>
                 </div>
             </div>
             <div className="cards">
@@ -34,7 +35,7 @@ class ProblemLevel extends React.Component {
                 <Card img={'https://www.cambridgemaths.org/Images/The-trouble-with-graphs.jpg'} value={'Graphs'} title={'Graphs'} description={'Advance level Data Structures and Algorithms'}/>
                 <Card img={'https://www.cambridgemaths.org/Images/The-trouble-with-graphs.jpg'} value={'String'} title={'Strings'} description={'Advance level Data Structures and Algorithms'}/>
             </div>
-            </div>
+        </div>
         )
     }
 }

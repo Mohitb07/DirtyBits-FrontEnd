@@ -8,10 +8,17 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
+import style from './CardStyle.css'
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    marginRight:'2.0em',
+    background:'#edf7ed',
+    marginBottom:'30px',
+    boxShadow: '1px 16px 60px -12px rgba(0,0,0,0.81)',
+    width:'800px',
+    height: '300px',
   },
 });
 
@@ -19,7 +26,7 @@ export default function ImgMediaCard(props) {
   const classes = useStyles();
 
   return (
-    <Card style={{marginRight:'1.5em',width:'300px',background:'#edf7ed',boxShadow: '1px 16px 60px -12px rgba(0,0,0,0.81)'}} className={classes.root}>
+    <Card id='customCard' style={style} className={classes.root}>
       <CardActionArea>
         <CardMedia
           component="img"

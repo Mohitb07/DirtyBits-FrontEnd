@@ -4,13 +4,13 @@ import axios from 'axios';
 import Card from './Component/Card';
 import Spinner from './Component/Spinner';
 import Dropdown from './Component/Dropdown';
-
 class ProblemList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       questions: [],
-      level:''
+      level:'',
+      isAuth:this.props.auth
     }
   }
 
@@ -60,6 +60,7 @@ class ProblemList extends React.Component {
   render(){
     const {questions} = this.state;
     return (
+      this.state.isAuth ?
       <div>
         <h1 className="container" style={{textAlign:'center', marginTop: '4%'}}>Problem List</h1>
         <Dropdown onChange={value => this.setState(
@@ -70,11 +71,11 @@ class ProblemList extends React.Component {
           questions.map(question => <div style={ { fontSize:30,marginTop:'10%',marginLeft:'10%' }} key={question.id}>
             <Card id={question.id} title={question.title} description={question.description}/>
             </div>
-            ):<div style={{display:'flex', justifyContent: 'center', marginTop: '5%'}}><Spinner/></div>
+            ):<div style={{display:'flex', justifyContent: 'center', marginTop: '5%',height: '50vh'}}><Spinner/></div>
           }
-
-
       </div>
+      :
+      <div style={{display:'flex', justifyContent: 'center', marginTop: '5%',height: '50vh'}}><Spinner/></div>
     )
   }
 }

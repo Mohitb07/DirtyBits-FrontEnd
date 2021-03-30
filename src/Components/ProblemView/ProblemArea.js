@@ -13,8 +13,10 @@ function ProblemArea(props) {
     type: "problem",
     id: props.id,
   };
+
   const showTCIn = (tc) => {
     var inps = new Array();
+    console.log(data.id)
     for (var i = 1; i <= tc; i++) {
       inps.push(
         endpoint +
