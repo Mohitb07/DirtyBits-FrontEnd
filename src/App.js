@@ -10,7 +10,7 @@ import settings from './settings';
 import logout from './logout';
 import history from './history';
 import { useAuth0 } from '@auth0/auth0-react'
-
+import Admin from "./Admin/Admin";
 
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
             (props) => (<ProblemList {...props} auth={isAuthenticated}/>)
           }/>
           <Route path="/settings" exact component={settings}/>
+          <Route path="/dashboard" exact component={Admin}/>
         </div>
       </Router>
     </div>
