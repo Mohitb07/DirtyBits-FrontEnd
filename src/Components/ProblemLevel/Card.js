@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -9,6 +9,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
 import style from './CardStyle.css'
+import AOS from 'aos';
+import "aos/dist/aos.css";
+
 
 const useStyles = makeStyles({
   root: {
@@ -25,8 +28,14 @@ const useStyles = makeStyles({
 export default function ImgMediaCard(props) {
   const classes = useStyles();
 
+  useEffect(() => {
+    AOS.init({
+      duration : 1000
+    });
+  }, []);
+
   return (
-    <Card id='customCard' style={style} className={classes.root}>
+    <Card data-aos="fade-right" id='customCard' style={style} className={classes.root}>
       <CardActionArea>
         <CardMedia
           component="img"

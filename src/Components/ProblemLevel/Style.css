@@ -1,4 +1,4 @@
-body {
+/* body {
     height: 100vh;
     padding: 0;
     background: ghostwhite;
@@ -52,6 +52,64 @@ body {
 }
 
 @media only screen 
+    and (min-width : 1224px) {
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            flex-direction: row;
+            padding: 190px;
+            justify-content: left;
+        }
+
+        
+    } */
+
+   body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .hero {
+        background: url('../static/back.png');
+        background-size: cover;
+        padding: 80px;
+        height: 70vh;
+        position: relative;
+    }
+
+    .cont {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .cont p{
+        font-size: 2em;
+        margin-top: 13px;
+        font-weight: 200;
+        color: white;
+    }
+
+    .title {
+        color: white;
+        height: 100px;
+        font-size: 3rem;
+        margin-left: 30%;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding: 190px;
+    }
+
+    @media only screen 
     and (min-width : 1224px) {
         .cards {
             display: flex;

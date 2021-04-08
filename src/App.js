@@ -22,7 +22,9 @@ function App() {
           <Navbar/>
           <Route path="/logout" component={logout}/>
           <Route path="/" exact component={ProblemLevel}/>
-          <Route path="/problem" exact component={ProblemView}/>
+          <Route path="/problem" exact render={
+            (props) => (<ProblemView {...props} auth={isAuthenticated}/>)
+          }/>
           <Route path="/problemlist" exact render={
             (props) => (<ProblemList {...props} auth={isAuthenticated}/>)
           }/>
