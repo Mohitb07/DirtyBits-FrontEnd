@@ -24,7 +24,7 @@ function Navbar(props) {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light navbarBack ">
-        <Link className="navbar-brand textFont pr-4" to="/">
+        <Link className="navbar-brand textFont pr-4" to="/" onClick={()=> setPage('home')} >
           <img
             src={logo}
             alt="logo"
@@ -68,14 +68,14 @@ function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item mr-4">
-              <a style={{color:'white'}}
+              <Link style={{color:'white'}}
                 className="nav-link"
-                href="/#"
+                to="/problemlist"
                 id="practice"
                 onClick={() => setPage("practice")}
               >
                 Practice
-              </a>
+              </Link>
             </li>
             <li className="nav-item mr-4">
               <a style={{color:'white'}}

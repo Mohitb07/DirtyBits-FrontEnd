@@ -7,9 +7,12 @@ function ProblemView(props) {
   const id = questionId;
   const uid = 1;
   return (
+    props.auth ?
     <div id="pageDiv">
       <ViewArea id={id} uid={uid} />
     </div>
+    :
+    'Not logged in '
   );
 }
 
