@@ -69,13 +69,14 @@
         margin: 0;
         padding: 0;
         height: 100vh;
+        background: ghostwhite;
     }
 
     .hero {
         background: url('../static/back.png');
         background-size: cover;
         padding: 80px;
-        height: 70vh;
+        height: 80vh;
         position: relative;
     }
 

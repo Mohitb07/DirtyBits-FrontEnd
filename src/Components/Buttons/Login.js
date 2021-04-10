@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import Button from '@material-ui/core/Button';
-import Spinner from '../ProbemList/Component/Spinner'
+// import Spinner from '../ProbemList/Component/Spinner'
 
 function Loginbutton() {
     
@@ -9,7 +9,8 @@ function Loginbutton() {
    
     console.log('button auth ' + isAuthenticated)
     if(isLoading){
-        return <span style={{color:'white', display:'flex', justifyContent:'center'}}><Spinner color='success'/></span>
+        // return <span style={{color:'white', display:'flex', justifyContent:'center'}}><Spinner color='success'/></span>
+        return ''
     }
     return (
         !isAuthenticated && (

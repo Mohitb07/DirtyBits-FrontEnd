@@ -14,7 +14,7 @@ const CodeEditor = (props) => {
   var score;
   var user_id = props.uid;
 
-  const [editorHeight, setEditorHeight] = useState("75vh");
+  const [editorHeight, setEditorHeight] = useState("78vh");
 
   const [isEditorReady, setIsEditorReady] = useState(false);
   const valueGetter = useRef();
@@ -136,7 +136,7 @@ const CodeEditor = (props) => {
         x.scrollIntoView();
       }
     } else {
-      setEditorHeight("75vh");
+      setEditorHeight("78vh");
       x.style.display = "none";
     }
   };

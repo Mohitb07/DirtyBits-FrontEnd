@@ -1,7 +1,6 @@
-/* 
-#customCard {
-    margin-bottom: 30px;
-    width: 800px;
-    height: 300px;
+
+#customCard a {
+    text-decoration: none;
+    outline: none;
 }
- */
+

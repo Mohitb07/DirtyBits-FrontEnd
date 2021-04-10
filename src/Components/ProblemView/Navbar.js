@@ -105,11 +105,14 @@ function Navbar(props) {
                 {user.name}
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" href="/#">
+                <Link className="dropdown-item" to="/#">
                   Profile
                 </Link>
-                <Link className="dropdown-item" href="/#">
+                <Link className="dropdown-item" to="/#">
                   Bookmarks
+                </Link>
+                <Link className="dropdown-item" to="/dashboard">
+                  Dashboard
                 </Link>
                 <div className="dropdown-divider"></div>
                 <Link className="dropdown-item" to="/settings">
@@ -122,7 +125,7 @@ function Navbar(props) {
             </li>
           </ul>
             :
-            ''
+            <span style={{color:'white'}}>Loading...</span>
           }
 
 
