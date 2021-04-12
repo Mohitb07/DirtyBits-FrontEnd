@@ -16,12 +16,12 @@ function ProblemArea(props) {
 
   const showTCIn = (tc) => {
     var inps = new Array();
-    console.log(data.id)
+    console.log(data.id);
     for (var i = 1; i <= tc; i++) {
       inps.push(
         endpoint +
           "media/TestCases/" +
-          data.id.toString() +
+          data.id +
           "/sc-input" +
           i.toString() +
           ".txt"
@@ -46,7 +46,7 @@ function ProblemArea(props) {
       ops.push(
         endpoint +
           "media/TestCases/" +
-          data.id.toString() +
+          data.id +
           "/sc-output" +
           i.toString() +
           ".txt"
