@@ -125,7 +125,7 @@ function Navbar(props) {
             </li>
           </ul>
             :
-            <span style={{color:'white'}}>Loading...</span>
+            ''
           }
 
 
