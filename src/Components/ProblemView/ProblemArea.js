@@ -21,7 +21,7 @@ function ProblemArea(props) {
       inps.push(
         endpoint +
           "media/TestCases/" +
-          data.id.toString() +
+          data.id +
           "/sc-input" +
           i.toString() +
           ".txt"
@@ -46,7 +46,7 @@ function ProblemArea(props) {
       ops.push(
         endpoint +
           "media/TestCases/" +
-          data.id.toString() +
+          data.id +
           "/sc-output" +
           i.toString() +
           ".txt"
