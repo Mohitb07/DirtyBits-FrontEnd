@@ -9,9 +9,8 @@ body {
     background-color: ghostwhite;
 }
 
-.dashboard-title {
-    font-weight: 400;
-    
+.dashboardTitle {
+    font-weight: 400;    
 }
 
 h1 , h4 {
@@ -27,8 +26,11 @@ span > h1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    flex-wrap: wrap;
     max-width: 1200px;
     height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {
@@ -45,12 +47,12 @@ span > h1 {
     transition: .5s ease-in-out;
 }
 
-.card-2 {
+.card2 {
     background: rgb(60,101,255);
 background: linear-gradient(203deg, rgba(60,101,255,0.8743698162858894) 0%, rgba(50,14,209,1) 0%, rgba(255,0,211,1) 0%, rgba(255,184,17,0.87156869583771) 100%); 
 }
 
-.card-3 {
+.card3 {
     background: rgb(60,101,255);
     background: linear-gradient(203deg, rgba(60,101,255,0.8743698162858894) 44%, rgba(50,14,209,1) 87%, rgba(105,17,255,0.87156869583771) 100%, rgba(0,212,255,1) 100%); 
 }
@@ -59,13 +61,13 @@ background: linear-gradient(203deg, rgba(60,101,255,0.8743698162858894) 0%, rgba
     transform: scale(1.2);
 }
 
-.cards-pie-container {
+.cardsPieContainer {
     display: flex;
     margin-top: 5%;
     justify-content: center;
 }
 
-.cards-container {
+.cardsContainer {
     display: flex;
     margin-top: 1.5%;
 }
