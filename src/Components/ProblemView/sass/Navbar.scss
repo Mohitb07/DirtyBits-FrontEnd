@@ -3,6 +3,7 @@
 .navbarBack {
   background: $nav-bg-1;
   background: $nav-bg-2;
+  // max-height: 7vh;
 }
 
 .textFont {
@@ -16,6 +17,7 @@
 .navbar-light .navbar-nav .show > .nav-link {
   color: $text-color;
   border-bottom: 1px solid white;
+  
 }
 
 

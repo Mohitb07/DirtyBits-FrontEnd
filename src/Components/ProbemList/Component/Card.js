@@ -10,13 +10,13 @@ class Card extends React.Component {
                 <div className="card">
                     <div className="card-body">
                         <h3 className="card-title">Title: {title}</h3>
-                        <p style={{fontSize:'15px'}} className="card-text">Description: {description}</p>
+                        <p style={{fontSize:'15px', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}} className="card-text">Description: {description}</p>
                         <Button size="small" color="primary">
-                            <Link to={{
+                            <Link style={{textDecoration:'none'}} to={{
                                 pathname:'/problem',
                                 questionId:id
                             }}>Solve</Link>
-                            </Button>
+                        </Button>
                     </div>
                 </div>
             </div>

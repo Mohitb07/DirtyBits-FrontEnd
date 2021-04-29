@@ -11,6 +11,7 @@ import logout from './logout';
 import history from './history';
 import { useAuth0 } from '@auth0/auth0-react'
 import Admin from "./Admin/Admin";
+import profile from "./Components/Profile/profile";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           }/>
           <Route path="/settings" exact component={settings}/>
           <Route path="/dashboard" exact component={Admin}/>
+          <Route path="/profile" exact component={profile}/>
         </div>
       </Router>
     </div>

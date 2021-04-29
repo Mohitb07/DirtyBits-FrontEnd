@@ -65,6 +65,12 @@
         
     } */
 
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap');
+
+    *{
+        font-family: 'Poppins', sans-serif;
+    }
+
    body {
         margin: 0;
         padding: 0;
@@ -93,13 +99,14 @@
         margin-top: 13px;
         font-weight: 200;
         color: white;
+        text-align: center;
     }
 
     .title {
         color: white;
         height: 100px;
         font-size: 3rem;
-        margin-left: 30%;
+        text-align: center;
     }
 
     .cards {
@@ -109,7 +116,7 @@
         flex-direction: row;
         padding: 190px;
     }
-
+    
     @media only screen 
     and (min-width : 1224px) {
         .cards {

@@ -105,7 +105,7 @@ function Navbar(props) {
                 {user.name}
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" to="/#">
+                <Link className="dropdown-item" to="/profile">
                   Profile
                 </Link>
                 <Link className="dropdown-item" to="/#">

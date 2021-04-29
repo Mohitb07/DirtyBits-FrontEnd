@@ -14,7 +14,7 @@ function Loginbutton() {
     }
     return (
         !isAuthenticated && (
-        <Button style={{maxWidth:'150px', marginLeft:'45%'}}  variant="contained"  onClick={()=>loginWithRedirect()}>
+        <Button style={{maxWidth:'150px', position:"absolute", top:'130%', left:"55%", transform:"translate(-110%,-50%)"}}  variant="contained"  onClick={()=>loginWithRedirect()}>
             Login
         </Button>        
         )
